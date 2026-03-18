@@ -4,8 +4,9 @@ const useStyles = makeStyles()(()=>({
     MainSection:{
         display: 'flex',
         flexDirection: 'row',
-        height: '80%',
+        height: '85%',
         width: '100%',
+        color: 'white'
     }
 }));
 

@@ -3,13 +3,16 @@ import useStyles from './MainSectionStyles'
 import SideBar from '../SideBar/SideBar';
 import PageContent from '../PageContent/PageContent';
 
-
-const MainSection: React.FC = () => {
+interface Props{
+    currentPage:string,
+    setCurrentPage:React.Dispatch<React.SetStateAction<string>>
+}
+const MainSection: React.FC<Props> = ({currentPage, setCurrentPage}) => {
     const {classes }= useStyles();
     return (
         <div className={classes.MainSection}>
-            <PageContent />
-            <SideBar />
+            <PageContent currentPage={currentPage} />
+            <SideBar setCurrentPage={setCurrentPage}/>
         </div>
     );
 };

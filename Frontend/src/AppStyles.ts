@@ -7,7 +7,8 @@ const useStyles = makeStyles()(()=>({
         flexDirection: 'column',
         width: '100vw',
         height: '100vh',
-        backgroundColor: theme.palette.secondary.main
+        backgroundColor: theme.palette.secondary.main,
+        color: 'white'
     }
 }));
 

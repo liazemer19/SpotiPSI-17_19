@@ -5,8 +5,8 @@ const useStyles = makeStyles()(()=>({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '80%',
-        height: '100%'
+        width: '85%',
+        height: '100%',
     }
 }));
 
