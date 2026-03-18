@@ -6,3 +6,7 @@ export interface Song {
   artist : string,
   album : string
 }
+
+export interface Fav {
+  id : string
+}
