@@ -5,8 +5,9 @@ const useStyles = makeStyles()(()=>({
     page:{
         display: 'flex',
         flexDirection: 'column',
-        width: '100vw',
-        height: '100vh',
+        width: '99vw',
+        height: '88vh',
+        margin: '0 ',
         backgroundColor: theme.palette.secondary.main,
         color: 'white'
     }
