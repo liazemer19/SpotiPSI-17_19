@@ -1,11 +1,12 @@
-import './App.css'
 import Header from './components/Header/Header'
 import MainSection from './components/MainSection/MainSection'
 import Player from './components/Player/Player'
+import useStyles from './AppStyles'
 
 function App() {
+  const {classes }= useStyles();
   return (
-    <div id='page'>
+    <div className={classes.page}>
       <Header />
       <MainSection />
       <Player />

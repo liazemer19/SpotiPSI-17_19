@@ -1,4 +1,5 @@
 import { makeStyles } from "tss-react/mui";
+import theme from "../../theme";
 
 const useStyles = makeStyles()(()=>({
     Header:{
@@ -8,8 +9,8 @@ const useStyles = makeStyles()(()=>({
         alignItems: 'center',
         width: '100%',
         height: '10%',
-        backgroundColor:'gray',
-        color: 'purple'
+        backgroundColor:theme.palette.secondary.light,
+        color: theme.palette.primary.main
     }
 }));
 

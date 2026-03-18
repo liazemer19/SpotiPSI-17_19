@@ -1,4 +1,5 @@
 import { makeStyles } from "tss-react/mui";
+import theme from "../../theme";
 
 const useStyles = makeStyles()(()=>({
     placeHolder:{
@@ -7,7 +8,7 @@ const useStyles = makeStyles()(()=>({
         justifyContent: 'center',
         width: '100%',
         height: '10%',
-        backgroundColor:'gray'
+        backgroundColor: theme.palette.secondary.light
     }
 }));
 
