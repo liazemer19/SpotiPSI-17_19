@@ -4,25 +4,24 @@ import Player from './components/Player/Player'
 import useStyles from './AppStyles'
 
 import {useEffect, useState} from 'react'
-import type  {Song} from './types/Songs'
-import AllSongsPage from './components/AllSongsPage/AllSongsPage'
-
+import type  {Fav,Song} from './types/Songs'
 
 function App() {
   const[currentPage, setCurrentPage] = useState<string>("songs")
   const {classes }= useStyles();
   
   const [songsList,setSongsList] = useState<Song[]>([])
+  const [favoritesList, setFavorityList] = useState<Fav[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error,setError] =useState<string>()
 
 
-  const fetchSongs =async () => {
+  const fetchSongs =async (setList:React.Dispatch<React.SetStateAction<any[]>>,url:string) => {
     setIsLoading(true)
     try {
-      const response = await fetch ('http://127.0.0.1:5001/api/songs')
+      const response = await fetch (url)
       const data = await response.json()
-      setSongsList(data)
+      setList(data)
     }
     catch(error) {
        setError('something went wrong')
@@ -34,8 +33,11 @@ function App() {
     }
   };
 
+
+
   useEffect(() => {
-    fetchSongs();
+    fetchSongs(setFavorityList,'http://127.0.0.1:5001/api/favorites')
+    fetchSongs(setSongsList,'http://127.0.0.1:5001/api/songs');
   } , []);
 
  
@@ -43,7 +45,7 @@ function App() {
   return (
     <div className={classes.page}>
       <Header />
-      <MainSection currentPage={currentPage} songsList={songsList} setCurrentPage={setCurrentPage}/>
+      <MainSection currentPage={currentPage} songsList={songsList} favoritesList={favoritesList} setCurrentPage={setCurrentPage}/>
       <Player />
     </div>
   )
