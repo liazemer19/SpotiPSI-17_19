@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import useStyles from './HeaderStyles'
 import MusicNote from '@mui/icons-material/MusicNote'
@@ -13,3 +14,5 @@ const Header: React.FC = () => {
 };
 
 export default Header
+=======
+>>>>>>> beb914c (songs connected)

@@ -4,13 +4,8 @@ import Player from './components/Player/Player'
 import useStyles from './AppStyles'
 
 import {useEffect, useState} from 'react'
-
-interface Song {
-  id : string,
-  name: string ,
-  artist : string,
-  album : string
-}
+import type  {Song} from './types/Songs'
+import AllSongsPage from './components/AllSongsPage/AllSongsPage'
 
 function App() {
   const[currentPage, setCurrentPage] = useState<string>("songs")
@@ -19,6 +14,7 @@ function App() {
   const [songsList,setSongsList] = useState<Song[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error,setError] =useState<string>()
+
 
   const fetchSongs =async () => {
     setIsLoading(true)
