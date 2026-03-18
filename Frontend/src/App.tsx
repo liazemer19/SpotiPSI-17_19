@@ -7,6 +7,7 @@ import {useEffect, useState} from 'react'
 import type  {Song} from './types/Songs'
 import AllSongsPage from './components/AllSongsPage/AllSongsPage'
 
+
 function App() {
   const[currentPage, setCurrentPage] = useState<string>("songs")
   const {classes }= useStyles();
