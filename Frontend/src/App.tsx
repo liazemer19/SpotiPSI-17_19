@@ -42,7 +42,7 @@ function App() {
   return (
     <div className={classes.page}>
       <Header />
-      <MainSection currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+      <MainSection currentPage={currentPage} songsList={songsList} setCurrentPage={setCurrentPage}/>
       <Player />
     </div>
   )
