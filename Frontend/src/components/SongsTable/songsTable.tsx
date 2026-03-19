@@ -1,13 +1,16 @@
 import type { Song } from "../../types/Songs"
 import SongRow from "../songRow/songRow"
 import useStyles from './songsTableStyles'
+import type { Fav } from "../../types/Songs"
 
 interface Props {
     AllSongs: Song[]
-    pageNameHeader:string
+    pageNameHeader:string,
+    favoritesList:Fav[],
+    setFavorityList: React.Dispatch<React.SetStateAction<Fav[]>>
 }
 
-const SongsTable :React.FC <Props> = ({AllSongs,pageNameHeader}) => {
+const SongsTable :React.FC <Props> = ({AllSongs,pageNameHeader, favoritesList, setFavorityList}) => {
     const {classes} = useStyles()
 return (
     //בקומפננטת האב נכנס בעמוד ראשי
@@ -15,9 +18,10 @@ return (
       <div className={classes.header}>
         <p className={classes.headerText}>{pageNameHeader}</p>
       </div>
-       {AllSongs.map((song) => 
-          <SongRow {...song} key={song.name}/>
-        )}
+
+       {AllSongs.map((song) => {
+        return <SongRow singleSong={song} key={song.name} favoritesList={favoritesList} setFavorityList={setFavorityList}/>
+       })}
      </div> 
     
 )

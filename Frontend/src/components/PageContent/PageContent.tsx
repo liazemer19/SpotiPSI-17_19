@@ -7,15 +7,16 @@ interface Props{
     currentPage:string,
     songsList:Song[],
     favoritesList : Fav[]
+    setFavorityList: React.Dispatch<React.SetStateAction<Fav[]>>
 }
 
-const PageContent: React.FC<Props> = ({songsList,currentPage,favoritesList}) => {
+const PageContent: React.FC<Props> = ({songsList,currentPage,favoritesList,setFavorityList}) => {
     
     const {classes }= useStyles();
     return (
         <div className={classes.PageContent}>
-        {currentPage==="songs" && <AllSongsPage AllSongs={songsList}></AllSongsPage>}
-        {currentPage==="favorites" && <FavoritesPage songsList={songsList} favoritesList={favoritesList}></FavoritesPage>}
+        {currentPage==="songs" && <AllSongsPage AllSongs={songsList} favoritesList={favoritesList} setFavorityList={setFavorityList}></AllSongsPage>}
+        {currentPage==="favorites" && <FavoritesPage songsList={songsList} favoritesList={favoritesList} setFavorityList={setFavorityList}></FavoritesPage>}
         </div>
     );
 };

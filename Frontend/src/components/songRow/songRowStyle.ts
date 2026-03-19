@@ -1,11 +1,12 @@
 
 import { makeStyles } from 'tss-react/mui';
+import theme from '../../theme';
 
 
 const useStyles = makeStyles()(({}) => ({
 
    rowContainer : {
-     backgroundColor: 'black',
+     backgroundColor: theme.palette.secondary.main,
      display: 'flex',
      flexDirection:'row',
      width: '100%',
@@ -19,7 +20,7 @@ const useStyles = makeStyles()(({}) => ({
 
   },
   play:{
-    color:'purple',
+    color:theme.palette.primary.light,
     marginTop:'7px',
     marginRight:'3px'
   },
@@ -38,7 +39,17 @@ const useStyles = makeStyles()(({}) => ({
   iconsSize : {
      width:'20px',
      height:'20px'
+  },
+  iconSizeFull : {
+     width:'20px',
+     height:'20px',
+     color: theme.palette.primary.light
   }
+  ,
+  iconBtn:{
+   color: 'white',
+   minWidth: '0'
+   }
  
 
 }))

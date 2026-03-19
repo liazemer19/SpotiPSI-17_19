@@ -4,9 +4,10 @@ export interface Song {
   id : string,
   name: string ,
   artist : string,
-  album : string
+  album : string,
+  isFav: boolean
 }
 
 export interface Fav {
-  id : string
+  songId : string
 }

@@ -38,14 +38,15 @@ function App() {
   useEffect(() => {
     fetchSongs(setFavorityList,'http://127.0.0.1:5001/api/favorites')
     fetchSongs(setSongsList,'http://127.0.0.1:5001/api/songs');
+  
+    // markFavorites()
   } , []);
 
- 
-
+  
   return (
     <div className={classes.page}>
       <Header />
-      <MainSection currentPage={currentPage} songsList={songsList} favoritesList={favoritesList} setCurrentPage={setCurrentPage}/>
+      <MainSection currentPage={currentPage} songsList={songsList} favoritesList={favoritesList} setCurrentPage={setCurrentPage} setFavorityList={setFavorityList}/>
       <Player />
     </div>
   )
