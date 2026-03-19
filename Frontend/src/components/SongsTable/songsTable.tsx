@@ -20,8 +20,6 @@ return (
       </div>
 
        {AllSongs.map((song) => {
-        // debugger
-        console.log(song)
         return <SongRow singleSong={song} key={song.name} favoritesList={favoritesList} setFavorityList={setFavorityList}/>
        })}
      </div> 

@@ -110,8 +110,8 @@ def add_favorite():
     if not any(s['id'] == song_id for s in songs_data):
         abort(404, description="השיר שאתה מנסה להוסיף לא קיים במערכת")
 
-    if song_id not in favorites_data:
-        favorites_data.append(song_id)
+    if {"songId":song_id} not in favorites_data:
+        favorites_data.append({"songId":song_id})
         save_json_data(FAVORITES_FILE, favorites_data)
     return jsonify(favorites_data)
 
@@ -122,8 +122,8 @@ def remove_favorite():
         abort(400, description="מזהה שיר (songId) חסר")
     song_id = request.json['songId']
 
-    if song_id in favorites_data:
-        favorites_data.remove(song_id)
+    if {"songId":song_id} in favorites_data:
+        favorites_data.remove({"songId":song_id})
         save_json_data(FAVORITES_FILE, favorites_data)
     # מחזירים גם אם השיר לא היה שם במקור
     return jsonify(favorites_data)

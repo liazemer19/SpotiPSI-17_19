@@ -15,7 +15,7 @@ interface Props {
 
 const SongRow:React.FC<Props> = ({singleSong, favoritesList, setFavorityList}) => {
   const {classes} = useStyles()
-  const [isFav,setIsFav] = useState<boolean>(false)
+  const [isFav,setIsFav] = useState<boolean>(singleSong.isFav)
 
   const addRemove = async (todo:string) =>{
     try {
@@ -45,12 +45,14 @@ const SongRow:React.FC<Props> = ({singleSong, favoritesList, setFavorityList}) =
             addRemove("remove")
             setFavorityList(prev => prev.filter(item => item.songId !== singleSong.id));
           }
+        singleSong.isFav = newVal
       return newVal;
     });
   };
 
+
 useEffect(() => {
-  
+  // singleSong.isFav = isFav
 } , []);
 
 return (
@@ -62,7 +64,7 @@ return (
        </div>
        <div className={classes.right}>
          <Button className={classes.iconBtn}><Add className={classes.iconsSize}/></Button>
-         <Button onClick={()=>favBtn()} className={classes.iconBtn}>{isFav? <Favorite className={classes.iconSizeFull}/>: <FavoriteBorder className={classes.iconsSize}/>}</Button>
+         <Button onClick={()=>favBtn()} className={classes.iconBtn}>{singleSong.isFav? <Favorite className={classes.iconSizeFull}/>: <FavoriteBorder className={classes.iconsSize}/>}</Button>
        </div>
       
      </div>
