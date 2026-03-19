@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useStyles from './SideBarStyles';
 import Home from '@mui/icons-material/Home';
 import Button from '@mui/material/Button'
@@ -11,16 +11,21 @@ interface Props{
 }
 
 const SideBar: React.FC<Props> = ({setCurrentPage}) => {
-    const ChangePage = (name:string) => {
+    const [currentClick,setCurrentClick]=useState<string>('0')
+
+    const ChangePage = (name:string,id:string) => {
         console.log(name)
         setCurrentPage(name)
+        setCurrentClick(id)
+
     }
+    
     const {classes }= useStyles();
     return (
         <div className={classes.SideBar}>
-            <Button onClick={()=>ChangePage('songs')}  className={classes.button} variant="contained" endIcon=<Home/> > כל השירים </Button>
-            <Button onClick={()=>ChangePage('playlists')}  className={classes.button} variant="contained" endIcon=<LibraryMusic/> > פליילסטים </Button>
-            <Button onClick={()=>ChangePage('favorites')}  className={classes.button} variant="contained" endIcon=<Favorite/> > מועדפים </Button>
+            <Button  id='1' onClick={()=>ChangePage('songs','1')}  className={`${classes.button} ${currentClick === '1' ? classes.colored : classes.notColored}`} variant="contained" endIcon=<Home/> > כל השירים </Button>
+            <Button  id='2' onClick={()=>ChangePage('playlists','2')}   className={`${classes.button} ${currentClick === '2' ? classes.colored : classes.notColored}`} variant="contained" endIcon=<LibraryMusic/> > פליילסטים </Button>
+            <Button  id='3' onClick={()=>ChangePage('favorites','3')}  className={`${classes.button} ${currentClick === '3' ? classes.colored : classes.notColored}`} variant="contained" endIcon=<Favorite/> > מועדפים </Button>
         </div>
     );
 };

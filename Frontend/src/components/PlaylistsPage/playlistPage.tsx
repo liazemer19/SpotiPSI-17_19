@@ -6,13 +6,9 @@ import { useState,useEffect } from "react"
 interface Props  {
     songsList:Song[] ,
     favoritesList:Fav[],
-    setFavorityList: React.Dispatch<React.SetStateAction<Fav[]>>
+    setFavorityList:React.Dispatch<React.SetStateAction<Fav[]>>
 }
 const FavoritesPage :React.FC <Props> = ({songsList,favoritesList,setFavorityList}) => {
-
-    
-
-
       const [filteredArray,SetArray]=useState<Song[]>([])
 
       useEffect(() => {
@@ -20,15 +16,12 @@ const FavoritesPage :React.FC <Props> = ({songsList,favoritesList,setFavorityLis
                .map(song => (SetArray(prev=>[...prev ,song])
         ))
         } , []);
-
-    
   
 return (
     //בקומפננטת האב נכנס בעמוד ראשי
         <>
-
+        
         <SongsTable pageNameHeader={"המועדפים שלי"} AllSongs={filteredArray} favoritesList={favoritesList} setFavorityList={setFavorityList}></SongsTable>
-
         </>
     
 )

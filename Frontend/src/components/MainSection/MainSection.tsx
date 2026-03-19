@@ -17,7 +17,6 @@ const MainSection: React.FC<Props> = ({songsList,currentPage, setCurrentPage,fav
     
 
     useEffect(() => {
-    console.log("hii")
     console.log(favoritesList)
     songsList.map((song) => {
     favoritesList.map((fav)=> fav.songId === song.id? song.isFav = true : song.isFav = false)

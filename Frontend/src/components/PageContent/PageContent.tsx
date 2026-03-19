@@ -3,6 +3,7 @@ import useStyles from './PageContentStyles';
 import AllSongsPage from '../AllSongsPage/AllSongsPage';
 import type {Fav, Song } from "../../types/Songs"
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
+import PlaylistsPage from '../PlaylistsPage/playlistPage';
 interface Props{
     currentPage:string,
     songsList:Song[],
@@ -17,6 +18,7 @@ const PageContent: React.FC<Props> = ({songsList,currentPage,favoritesList,setFa
         <div className={classes.PageContent}>
         {currentPage==="songs" && <AllSongsPage AllSongs={songsList} favoritesList={favoritesList} setFavorityList={setFavorityList}></AllSongsPage>}
         {currentPage==="favorites" && <FavoritesPage songsList={songsList} favoritesList={favoritesList} setFavorityList={setFavorityList}></FavoritesPage>}
+        {currentPage==="playlists" && <PlaylistsPage songsList={songsList} favoritesList={favoritesList} setFavorityList={setFavorityList}></PlaylistsPage>}
         </div>
     );
 };

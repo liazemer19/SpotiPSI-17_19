@@ -5,18 +5,19 @@ import useStyles from './AppStyles'
 
 import {useEffect, useState} from 'react'
 import type  {Fav,Song} from './types/Songs'
+import type { playlist } from './types/playlists'
 
 function App() {
   const[currentPage, setCurrentPage] = useState<string>("songs")
   const {classes }= useStyles();
-  
   const [songsList,setSongsList] = useState<Song[]>([])
   const [favoritesList, setFavorityList] = useState<Fav[]>([])
+  const [playlistsList,setplaylistsList] =useState<playlist[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error,setError] =useState<string>()
 
 
-  const fetchSongs =async (setList:React.Dispatch<React.SetStateAction<any[]>>,url:string) => {
+  const fetchdata =async (setList:React.Dispatch<React.SetStateAction<any[]>>,url:string) => {
     setIsLoading(true)
     try {
       const response = await fetch (url)
@@ -36,10 +37,11 @@ function App() {
 
 
   useEffect(() => {
-    fetchSongs(setFavorityList,'http://127.0.0.1:5001/api/favorites')
-    fetchSongs(setSongsList,'http://127.0.0.1:5001/api/songs');
-  
-    // markFavorites()
+
+    fetchdata(setFavorityList,'http://127.0.0.1:5001/api/favorites')
+    fetchdata(setSongsList,'http://127.0.0.1:5001/api/songs');
+    fetchdata(setplaylistsList,'http://127.0.0.1:5001/api/playlists')
+
   } , []);
 
   
