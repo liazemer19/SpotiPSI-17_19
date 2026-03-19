@@ -50,8 +50,7 @@ function App() {
     <div className={classes.page}>
       
       <Header />
-      <MainSection currentPage={currentPage} songsList={songsList} favoritesList={favoritesList} setCurrentPage={setCurrentPage} setFavorityList={setFavorityList}/>
-
+      <MainSection currentPage={currentPage} songsList={songsList} favoritesList={favoritesList} playlists={playlistsList} setCurrentPage={setCurrentPage} setFavorityList={setFavorityList}/>
       <Player />
     </div>
   )

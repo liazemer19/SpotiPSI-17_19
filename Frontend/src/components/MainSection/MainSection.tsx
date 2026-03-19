@@ -16,10 +16,8 @@ interface Props{
     setFavorityList: React.Dispatch<React.SetStateAction<Fav[]>>
 }
 const MainSection: React.FC<Props> = ({songsList,currentPage, setCurrentPage,favoritesList,playlists,setFavorityList}) => {
-
-    const {classes }= useStyles();
     
-
+    const {classes }= useStyles();
     useEffect(() => {
     console.log(favoritesList)
     songsList.map((song) => {
@@ -29,9 +27,7 @@ const MainSection: React.FC<Props> = ({songsList,currentPage, setCurrentPage,fav
   
     return (
         <div className={classes.MainSection}>
-
             <PageContent currentPage={currentPage} songsList={songsList} favoritesList ={favoritesList} playlists={playlists} setFavorityList={setFavorityList}/>
-
             <SideBar setCurrentPage={setCurrentPage}/>
         </div>
     );
