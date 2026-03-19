@@ -14,7 +14,6 @@ const SideBar: React.FC<Props> = ({setCurrentPage}) => {
     const [currentClick,setCurrentClick]=useState<string>('0')
 
     const ChangePage = (name:string,id:string) => {
-        console.log(name)
         setCurrentPage(name)
         setCurrentClick(id)
 

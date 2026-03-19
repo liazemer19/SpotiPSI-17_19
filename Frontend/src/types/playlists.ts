@@ -1,4 +1,4 @@
-export interface playlist {
+export interface Playlist {
     id:string
     name:string
     songIds:string[]

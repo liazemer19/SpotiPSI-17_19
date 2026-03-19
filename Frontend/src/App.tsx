@@ -5,14 +5,14 @@ import useStyles from './AppStyles'
 
 import {useEffect, useState} from 'react'
 import type  {Fav,Song} from './types/Songs'
-import type { playlist } from './types/playlists'
+import type { Playlist } from './types/playlists'
 
 function App() {
   const[currentPage, setCurrentPage] = useState<string>("songs")
   const {classes }= useStyles();
   const [songsList,setSongsList] = useState<Song[]>([])
   const [favoritesList, setFavorityList] = useState<Fav[]>([])
-  const [playlistsList,setplaylistsList] =useState<playlist[]>([])
+  const [playlistsList,setplaylistsList] =useState<Playlist[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error,setError] =useState<string>()
 
@@ -44,11 +44,14 @@ function App() {
 
   } , []);
 
-  
+
   return (
+    
     <div className={classes.page}>
+      
       <Header />
       <MainSection currentPage={currentPage} songsList={songsList} favoritesList={favoritesList} setCurrentPage={setCurrentPage} setFavorityList={setFavorityList}/>
+
       <Player />
     </div>
   )

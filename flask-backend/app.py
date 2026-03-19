@@ -39,7 +39,6 @@ def save_json_data(filepath, data):
 songs_data = load_json_data(SONGS_FILE, [])
 playlists_data = load_json_data(PLAYLISTS_FILE, [])
 favorites_data = load_json_data(FAVORITES_FILE, []) # מערך של song IDs
-
 # --- Routes ---
 
 @app.route('/api/songs', methods=['GET'])

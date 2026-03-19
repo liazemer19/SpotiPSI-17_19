@@ -1,29 +1,51 @@
-import type {Fav, Song } from "../../types/Songs"
-
-import SongsTable from '../SongsTable/songsTable'
-import { useState,useEffect } from "react"
+import type { Playlist } from '../../types/playlists'
+import useStyles from './playlistPageStyles'
+import Button from '@mui/material/Button'
+import Add from '@mui/icons-material/Add'
 
 interface Props  {
-    songsList:Song[] ,
-    favoritesList:Fav[],
-    setFavorityList:React.Dispatch<React.SetStateAction<Fav[]>>
+    playlistsList:Playlist[] 
 }
-const FavoritesPage :React.FC <Props> = ({songsList,favoritesList,setFavorityList}) => {
-      const [filteredArray,SetArray]=useState<Song[]>([])
+const PlaylistPage :React.FC <Props> = ({playlistsList}) => {
+    const {classes} = useStyles()
 
-      useEffect(() => {
-              songsList.filter(song => favoritesList.some(fav => fav.songId === song.id))
-               .map(song => (SetArray(prev=>[...prev ,song])
-        ))
-        } , []);
-  
 return (
-    //בקומפננטת האב נכנס בעמוד ראשי
-        <>
-        
-        <SongsTable pageNameHeader={"המועדפים שלי"} AllSongs={filteredArray} favoritesList={favoritesList} setFavorityList={setFavorityList}></SongsTable>
-        </>
+
+   
+     <div className={classes.pageContainer}>  
+      <div className={classes.header}>
+       
+        <Button className={classes.button}  >
+            <p>צור פלייליסט</p>
+             <Add></Add>
+        </Button>
+       
+        <p className={classes.headerText}>{"הפלייליסטים שלי"}</p>
+    
+      </div>
+       <div>
+          {
+          playlistsList.map((playlist) =>  
+            {
+            {console.log(playlist.name)}
+           return <div className={classes.rowContainer}>
+               <div className={classes.left}>
+                <p className={classes.text}>{playlist.name}</p>
+                <div className={classes.containerDescrip}>
+                <p className={classes.littleText}>{"שירים"}</p>
+                <p className={classes.littleText}>{playlist.songIds.length}</p>
+                
+                </div >
+                   </div> 
+            </div> 
+        })}
+       
+        </div>   
+     </div> 
+   
+
     
 )
 }
-export default FavoritesPage
+
+export default PlaylistPage
