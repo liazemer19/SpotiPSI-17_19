@@ -6,7 +6,7 @@ const useStyles = makeStyles()(()=>({
         display: 'flex',
         flexDirection: 'column',
         width: '99vw',
-        height: '88vh',
+        height: '97vh',
         margin: '0 ',
         backgroundColor: theme.palette.secondary.main,
         color: 'white'

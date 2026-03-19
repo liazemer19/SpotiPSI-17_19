@@ -1,23 +1,21 @@
-import type { Song } from "../../types/Songs"
+import type { Song,Fav } from "../../types/Songs"
 import SongRow from "../songRow/songRow"
 import useStyles from './AllSongsPageStyles'
 import './allSongsPageScrollBar.css'
+import SongsTable from "../SongsTable/songsTable"
 interface Props {
-    AllSongs: Song[]
+    AllSongs: Song[],
+    favoritesList : Fav[],
+    setFavorityList: React.Dispatch<React.SetStateAction<Fav[]>>
 }
 
-const AllSongsPage :React.FC <Props> = ({AllSongs}) => {
+const AllSongsPage :React.FC <Props> = ({AllSongs, favoritesList, setFavorityList}) => {
     const {classes} = useStyles()
 return (
     //בקומפננטת האב נכנס בעמוד ראשי
-     <div className={classes.pageContainer}>  
-      <div className={classes.header}>
-        <p className={classes.headerText}>כל השירים</p>
-      </div>
-       {AllSongs.map((song) => 
-          <SongRow {...song} key={song.name}/>
-        )}
-     </div> 
+    <>
+    <SongsTable pageNameHeader={"כל השירים"} AllSongs={AllSongs} favoritesList={favoritesList} setFavorityList={setFavorityList}></SongsTable>
+    </>
     
 )
 }

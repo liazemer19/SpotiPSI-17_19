@@ -8,5 +8,5 @@ export interface Song {
 }
 
 export interface Fav {
-  id : string
+  songId : string
 }
