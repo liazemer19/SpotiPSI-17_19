@@ -1,12 +1,16 @@
 
 import { makeStyles } from 'tss-react/mui';
+
 import theme from '../../theme';
+
 
 
 const useStyles = makeStyles()(({}) => ({
 
    rowContainer : {
+
      backgroundColor: theme.palette.secondary.main,
+
      display: 'flex',
      flexDirection:'row',
      width: '100%',
@@ -20,7 +24,9 @@ const useStyles = makeStyles()(({}) => ({
 
   },
   play:{
+
     color:theme.palette.primary.light,
+
     marginTop:'7px',
     marginRight:'3px'
   },

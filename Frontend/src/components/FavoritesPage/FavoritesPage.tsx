@@ -10,15 +10,11 @@ interface Props  {
 }
 const FavoritesPage :React.FC <Props> = ({songsList,favoritesList,setFavorityList}) => {
       const [filteredArray,SetArray]=useState<Song[]>([])
-
       useEffect(() => {
               songsList.filter(song => favoritesList.some(fav => fav.songId === song.id))
                .map(song => (SetArray(prev=>[...prev ,song])
         ))
         } , []);
-
-    
-  
 return (
     //בקומפננטת האב נכנס בעמוד ראשי
         <>

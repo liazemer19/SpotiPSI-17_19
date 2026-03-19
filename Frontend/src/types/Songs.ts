@@ -10,4 +10,7 @@ export interface Song {
 
 export interface Fav {
   songId : string
+
 }
+
+

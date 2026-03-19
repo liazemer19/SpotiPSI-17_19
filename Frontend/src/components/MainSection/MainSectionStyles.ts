@@ -6,7 +6,7 @@ const useStyles = makeStyles()(()=>({
         flexDirection: 'row',
         height: '100%',
         width: '100%',
-        color: 'white'
+        backgroundColor: 'black'
        
     }
 }));

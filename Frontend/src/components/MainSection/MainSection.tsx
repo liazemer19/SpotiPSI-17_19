@@ -3,21 +3,22 @@ import useStyles from './MainSectionStyles'
 import SideBar from '../SideBar/SideBar';
 import PageContent from '../PageContent/PageContent';
 import type {Fav, Song } from "../../types/Songs"
+
 import {useEffect} from 'react'
 
+import type { Playlist } from '../../types/playlists';
 interface Props{
     currentPage:string,
     setCurrentPage:React.Dispatch<React.SetStateAction<string>>,
-    songsList:Song[],
-    favoritesList : Fav[],
+    songsList:Song[]
+    favoritesList : Fav[]
+    playlists : Playlist[]
     setFavorityList: React.Dispatch<React.SetStateAction<Fav[]>>
 }
-const MainSection: React.FC<Props> = ({songsList,currentPage, setCurrentPage,favoritesList, setFavorityList}) => {
-    const {classes }= useStyles();
+const MainSection: React.FC<Props> = ({songsList,currentPage, setCurrentPage,favoritesList,playlists,setFavorityList}) => {
     
-
+    const {classes }= useStyles();
     useEffect(() => {
-    console.log("hii")
     console.log(favoritesList)
     songsList.map((song) => {
     favoritesList.map((fav)=> fav.songId === song.id? song.isFav = true : song.isFav = false)
@@ -26,7 +27,7 @@ const MainSection: React.FC<Props> = ({songsList,currentPage, setCurrentPage,fav
   
     return (
         <div className={classes.MainSection}>
-            <PageContent currentPage={currentPage} songsList={songsList} favoritesList ={favoritesList} setFavorityList={setFavorityList}/>
+            <PageContent currentPage={currentPage} songsList={songsList} favoritesList ={favoritesList} playlists={playlists} setFavorityList={setFavorityList}/>
             <SideBar setCurrentPage={setCurrentPage}/>
         </div>
     );
